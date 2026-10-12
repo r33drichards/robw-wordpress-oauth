@@ -2,12 +2,14 @@
   "status": "FUNCTIONAL_GATES_PASS_OFFICIAL_WP_CHECK_BLOCKED",
   "environment": {
     "node": "24.20.0",
-    "wordpress": "6.9",
-    "php": "8.3",
+    "wordpress": "NOT_RUNTIME_VERIFIED_HISTORICAL_RUN",
+    "php": "NOT_RUNTIME_VERIFIED_HISTORICAL_RUN",
     "wordpressPlayground": "3.1.57",
     "phpWorkers": 2,
     "playwright": "1.58.2",
-    "database": "official SQLite integration; native MySQL not run"
+    "database": "official SQLite integration; native MySQL not run",
+    "wordpressConfigured": "6.9",
+    "phpConfigured": "8.3"
   },
   "e2e": {
     "pass": 53,
@@ -515,5 +517,11 @@
     "tools/test.cjs": "64a084258c9e70707cda7c6601ed5563194aa09c9ead7011bbb3c6710b18ec7f",
     "tools/vendor.py": "bd5cd2c9167fd5ec0100a283755c2fa8ce7eaa00033dc1a0761f0f8598d84b21",
     ".github/workflows/e2e.yml": "53c22870349082c868428fa2e0fd99d29c468e0d38c2ec2edaf93e2c7b79994e"
+  },
+  "runtimeCorrection": {
+    "reason": "Supplied Blueprint defaults can override CLI-only version selection; discovered during separate forge tests",
+    "freshPinnedOAuthRun": "NOT_RUN",
+    "historicalFunctionalCases": 53,
+    "forgeIntegrationIsNotProviderSuite": true
   }
 }

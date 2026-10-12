@@ -4,6 +4,14 @@ GPL-2.0-or-later; PHP 8.1+. No paid edition, external auth service, SSH listener
 
 **Development release, not a complete Git forge.** This package implements authentication and authorization. Git object storage, smart HTTP clone/push and webhooks are not implemented. The test repository consumer is a deliberately isolated fixture, not Git engine E2E.
 
+## Repository boundary
+
+This repository is **OAuth authentication and authorization only**. It does not contain a Git forge, repository storage, clone/push engine, issue tracker, or webhook delivery implementation.
+
+The separate [Robw WordPress Git Forge](https://github.com/r33drichards/robw-wordpress-forge) plugin owns those features and consumes this provider through `robw_oauth_principal` and the `robw_oauth_repository_access` filter. Install and review each plugin independently; no forge backend is bundled here. Forge development status and transport/storage evidence belong in that repository.
+
+The `repo:read` / `repo:write` scopes and repository-access hook are an integration contract, not an embedded forge. Test consumers here remain fixtures.
+
 ## Implemented profile
 
 - Public desktop clients, registered by WordPress administrators (Settings → Git OAuth).
@@ -39,8 +47,12 @@ Install git-credential-oauth separately on the client, and configure an OS crede
 
 Node >=24.18 and npm >=11.16; npm ci; npm audit --audit-level=moderate; npm test. See tools/test.cjs, tests/blueprint.json, tests/oauth.spec.cjs and verification/ for the final evidence.
 
-Uses the official WordPress Playground distribution (WordPress 6.9 / PHP 8.3), a real Chromium browser, real loopback callbacks, and actual HTTP requests. Concurrent redemption is exercised against two PHP workers. A separate test drives actual git credential fill with pinned upstream git-credential-oauth, browser PKCE consent, authenticated HTTP read/write authorization and revocation. Maintainer Go tests are run separately.
+Uses the official WordPress Playground distribution, a real Chromium browser, real loopback callbacks, and actual HTTP requests. Concurrent redemption is exercised against two PHP workers. A separate test drives actual git credential fill with pinned upstream git-credential-oauth, browser PKCE consent, authenticated HTTP read/write authorization and revocation. Maintainer Go tests are run separately.
 
 **Tests demonstrate covered properties; they do not prove absence of every vulnerability.** RFC vectors/requirements and upstream tests are not an IETF certificate. This is not OIDC/FAPI-certified. Official WordPress Plugin Check is a separate packaging/static-analysis gate, not an OAuth security certificate. Unrun gates must remain NOT_RUN/BLOCKED, not PASS.
 
 Never deploy tests/mu or define ROBW_OAUTH_LOCAL_TEST on a production site. Test fixtures contain local-only login/state controls and are excluded from the install ZIP. Never enable traces, credential dumps or cookie snapshots during OAuth tests.
+
+### Runtime evidence correction
+
+The historical 53-case run passed, but its WordPress 6.9 / PHP 8.3 labels came from CLI configuration, not runtime assertions. During separate forge development, a supplied Blueprint was observed using default runtime tracks despite the CLI banner. Those old labels are **not verified compatibility evidence**; the report now marks them configured/unverified. The reproduction runner now pins preferred versions inside the Blueprint and checks actual runtime versions. A fresh OAuth-only version-pinned run is still pending; forge integration tests are not substituted for this provider’s own suite.
