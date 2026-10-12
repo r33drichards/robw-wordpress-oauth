@@ -1,0 +1,12 @@
+{
+  "steps": [
+    {
+      "step": "activatePlugin",
+      "pluginPath": "robw-oauth/robw-oauth.php"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require '/wordpress/wp-load.php'; update_option('permalink_structure','/%postname%/'); $a=wp_insert_user(['user_login'=>'alice','user_pass'=>bin2hex(random_bytes(32)),'role'=>'subscriber']); $b=wp_insert_user(['user_login'=>'bob','user_pass'=>bin2hex(random_bytes(32)),'role'=>'subscriber']); RobwOAuthDB::mutate(function(&$s){$s['clients']['git-test']=['name'=>'Git Test','redirect_uri'=>'http://127.0.0.1/oauth/callback','scope'=>'repo:read repo:write'];$s['clients']['other-client']=['name'=>'Other Client','redirect_uri'=>'https://example.test/callback','scope'=>'repo:read'];});"
+    }
+  ]
+}

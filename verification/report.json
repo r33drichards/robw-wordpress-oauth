@@ -1,0 +1,519 @@
+{
+  "status": "FUNCTIONAL_GATES_PASS_OFFICIAL_WP_CHECK_BLOCKED",
+  "environment": {
+    "node": "24.20.0",
+    "wordpress": "6.9",
+    "php": "8.3",
+    "wordpressPlayground": "3.1.57",
+    "phpWorkers": 2,
+    "playwright": "1.58.2",
+    "database": "official SQLite integration; native MySQL not run"
+  },
+  "e2e": {
+    "pass": 53,
+    "fail": 0,
+    "skip": 0,
+    "publishedRfcVectorCases": 1,
+    "httpBrowserCases": 52,
+    "cases": [
+      {
+        "name": "RFC7636 Appendix B official S256 vector",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "RFC8414 discovery advertises only supported flows",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "browser consent -> public PKCE token -> authenticated read/write",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "explicit consent denial returns access_denied and same state",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "anonymous authorization requires WordPress login",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "reject missing challenge",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "reject plain PKCE",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "reject unsupported method",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "reject missing state",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "reject unsupported implicit flow",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "reject unregistered client",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "reject redirect host mismatch",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "reject redirect path mismatch",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "reject fragment redirect",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "unregistered scope returns RFC6749 invalid_scope callback",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "loopback callback accepts another port but exact path",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "consent POST without CSRF nonce denied",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "token rejects wrong verifier",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "token rejects missing verifier",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "token rejects short verifier",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "token rejects wrong redirect",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "token rejects wrong client",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "authorization code replay rejected and issued family revoked",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "concurrent code redemption produces at most one success",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "refresh rotation narrows scope and old token replay revokes family",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "refresh scope escalation rejected",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "RFC7009 revocation immediately denies access and refresh",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "RFC7009 unknown token returns success",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "repository ACL denied despite valid read/write token",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "read-only scope cannot write",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "invalid credential and query-string token never accepted",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "duplicate token parameters rejected",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "array parameters rejected",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "token endpoint requires POST form body",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "unsupported password grant rejected",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "OAuth errors prohibit caching",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "expired authorization code denied",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "expired access token denied",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "expired refresh token denied",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "WordPress permission loss immediately denies existing token",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "bearer header authenticates without WordPress cookie",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "other WordPress account token cannot access Alice repository",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "cross-user consent ticket rejected",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "consent ticket single-use",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "persisted access record is keyed by hash without plaintext token field",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "revocation requires token parameter",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "WordPress admin public-client registry -> OAuth browser authorization",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "client deletion revokes grants permanently even after ID recreation",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "non-administrator cannot manage OAuth clients",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "RFC6749 opaque short state is returned unchanged",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "RFC6750 invalid bearer token receives bearer challenge",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "RFC7636 missing verifier is invalid_request and mismatch invalid_grant",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      },
+      {
+        "name": "HTTP auth schemes are case-insensitive and allow multiple spaces",
+        "status": "expected",
+        "results": [
+          "passed"
+        ]
+      }
+    ],
+    "startTime": "2026-10-12T08:34:49.514Z",
+    "durationMs": 356825.294,
+    "fullReportSha256": "ba658b98ee1585723e0b82c61230c5eac9ff31f4bebe348ae896412db9eb5a99"
+  },
+  "realGitCredentialHelper": {
+    "status": "PASS",
+    "sourceCommit": "031d9b7e782a4e56e71e209ea9e587f3f73adaee",
+    "scope": "actual git credential fill, browser PKCE/consent, HTTP read/write authorization and revocation; not clone/push"
+  },
+  "upstreamHelperGoTests": {
+    "status": "PASS",
+    "go": "1.27.2"
+  },
+  "officialWordPressPluginCheck": {
+    "status": "BLOCKED",
+    "version": "2.1.0",
+    "reason": "Official scanner PHP_CodeSniffer requires php://stdin, unavailable in local PHP-WASM CLI. No scanner security/packaging PASS inferred.",
+    "nativeCi": "configured but NOT_RUN"
+  },
+  "npmAudit": {
+    "status": "PASS",
+    "knownAdvisories": 0,
+    "scope": "development dependencies, qs6.16.0 override"
+  },
+  "phpPackagistAdvisories": {
+    "knownAdvisories": 0,
+    "scope": "bshaffer/oauth2-server-php API query; not a security proof"
+  },
+  "officialOAuthCertification": {
+    "status": "NOT_RUN",
+    "scope": "OIDC/FAPI not implemented; no IETF certificate claimed"
+  },
+  "productionWasmerNativeMySqlTls": {
+    "status": "NOT_RUN"
+  },
+  "actualGitClonePushWebhooks": {
+    "status": "NOT_IMPLEMENTED"
+  },
+  "files": {
+    "robw-oauth/LICENSE": "0dcaa9eee3e36fafaaba99d20e92bbafa5b5500643761c1b84adb9369dc194b6",
+    "robw-oauth/readme.txt": "f843dccb7cdbf2b90f9f124af12b1e5aa89750ab0766bb6169aed471729bb05a",
+    "robw-oauth/robw-oauth.php": "d3965820d9efd85c8f76a875db48530a5717c37cf12d57e95f70e722ea10d1b7",
+    "robw-oauth/src/http.php": "5238800051b60751176214728d4732323e4944e2b95cb69a2126cb8ca2dc344e",
+    "robw-oauth/src/server.php": "2d1af3e846915ff515b46b663a5a81e54b41ac69c912a551e7a8b5bc869bdc5b",
+    "robw-oauth/vendor/manifest.json": "b8f67da6c6edefa468363cab8822ff70392175f3f1e3ca96486cef734ab77fc3",
+    "robw-oauth/vendor/oauth2-server/LICENSE": "22cdcede2d8699410b1e5d279993854f22ea1b3f05e3a50c0564a00cfa5857fd",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Autoloader.php": "d4fa259a94f5e1a8e740f7420e0de8846307d86cff6f5aa8cd33d16f871f96ef",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ClientAssertionType/ClientAssertionTypeInterface.php": "5e149c911f4310bfe6e54747125dcaf20db6af700233675627cefe113d86cfc5",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ClientAssertionType/HttpBasic.php": "c8820824706b1bf01d5bb591e5ee446480e4f84187ee078e9f8e3d9922b17a75",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Controller/AuthorizeController.php": "44dd55da008e5e13ee9b8d9063abdc21b44e0f14bf604120f3818556630a6e92",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Controller/AuthorizeControllerInterface.php": "4c729c6a65da0c1b2af50deedb3c6d5563e86f5b4ea6b7f392bd07f0bf81407f",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Controller/ResourceController.php": "0f4d6b3c11d68ab23dcae6dc13b450c3bd6b6118cf7a556f73ae044bcb21c309",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Controller/ResourceControllerInterface.php": "60be62ce9d871cee004a24d9e3a0a73e21cd7867e6c7a24adab34b374daac1a4",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Controller/TokenController.php": "7346b9a1081554f08db9594570d5a9261b4889b42747212481a88fe40a4a21ba",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Controller/TokenControllerInterface.php": "878849bbb7a6f5d9a04296ef221ddecb3568862737143666a88b9a8938d95fa3",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Encryption/EncryptionInterface.php": "dbef272967fcc57cf09a1edafbce7053860d5fe2a3deae89f961a69680d93149",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Encryption/FirebaseJwt.php": "86a20438ca2398b96f9f50183ccf52f485cf4d6ddf48133ec272523b056cf67d",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Encryption/Jwt.php": "b6fcce90f23d8d5f03ddfb1f6754668105927214e2ef0e8afc2be1d2eec6adf9",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/GrantType/AuthorizationCode.php": "c01099dd0e256ab56de1b7fa589c3e53929e848e4719f3b969ebc95ff1d5755e",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/GrantType/ClientCredentials.php": "ca68622e7d67687ffec9d1eb416850c243dd15aee458db809439add35a5daaf0",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/GrantType/GrantTypeInterface.php": "9a7a2da1913104b611df8773b7a0bb0159b5291a768afd72a899afbf84574d94",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/GrantType/JwtBearer.php": "e4c640039de80f5cf32b82a47ee28fdbfd2cd219090e432629979380f6e70d0b",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/GrantType/RefreshToken.php": "be2ff62cd5ba04b72a13e9b5b99cbb198891112c35c39ac7e4366db4ccaf5399",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/GrantType/UserCredentials.php": "3200909c1caae0a7dc3f6562ec4ac0e89afe430bd558b69cc3cbc827ec99cb38",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/Controller/AuthorizeController.php": "5d0109b708e4065fee6dfd1b19cee7ee99b68edfc638408541bf32faa62ce9a9",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/Controller/AuthorizeControllerInterface.php": "c793ea64835b12c6ba9a1ea9359f3b43b8bf39fed58a4a50aa70823516734992",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/Controller/UserInfoController.php": "247556fd11fc4c57ba6f29afc6a21df6a85fcd64413a44169f00bca321d5b0d8",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/Controller/UserInfoControllerInterface.php": "f862b55a7d604f72627b00e68dc0fbecd16bcbdb30212f4ed729c66d8d14df57",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/GrantType/AuthorizationCode.php": "71841c6e2dff06d70c7a0a27591f17f7a452e3cde8cc0d1ffa170929961bbe4a",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/ResponseType/AuthorizationCode.php": "61a820da787ea5b2733552950f847908a02cdd42ec57d59635cf8ab5eb686979",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/ResponseType/AuthorizationCodeInterface.php": "b265076805a1a9807fb426244158c277a905bbbaf0f633bb4e356e98f59db033",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/ResponseType/CodeIdToken.php": "9517a3682426db268e6b0bf7a9c17c2b924ba0bfcb14449fdcae21434bf874e5",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/ResponseType/CodeIdTokenInterface.php": "1e1c72454cfac5b14b4aaa716c9c369080c309f7008e90dd9cacc42e994a18e9",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/ResponseType/IdToken.php": "d5d0dae531a75a22c129f695d326c84e0237687feb6e16753f6296a604c88aa3",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/ResponseType/IdTokenInterface.php": "cf2f5a7aece29b1150ed159d93024f19b197c337114604c57d8aec8adae2e758",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/ResponseType/IdTokenToken.php": "39621377e1d32d5926b982fd83ad460049c1c6e464648c6f9083a6ed5f942c54",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/ResponseType/IdTokenTokenInterface.php": "387ffa84b05a46bf2ff332f5090876304e61714e5be6135589ab80ff6250541c",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/Storage/AuthorizationCodeInterface.php": "5eb389aa1f2631b56e826583c22836c29fe21740821876b9172ab0aa2c87ae57",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/OpenID/Storage/UserClaimsInterface.php": "fd3a02c64280a7d9f29dede6cfd45c77ec0405250e96019969858e82cf3801f7",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Request.php": "a342e1b3a4b753840426d067d4556e6b4fc2ea897a38e2d530d3df7a75ffed76",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/RequestInterface.php": "729ad5d235867dd759a4f4e5da51e9490ae9412c5c6240a49ac3fb41af7e6664",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Response.php": "0769db17383190af55c593ac48025eb2786a37ff7ea9a82f103124e219f8f9b4",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ResponseInterface.php": "f384cb2f01655440a03a82d24036381e4121646e396a79579482ef44fda497d1",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ResponseType/AccessToken.php": "cb040b0b91a705167555823b2709c3c4d68377c96b8f52c7ab5574b72de93b66",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ResponseType/AccessTokenInterface.php": "ad68721eb243aae412fecc71ac0e84595b9cbb6e5d07ad44b2afc7479eacf2b2",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ResponseType/AuthorizationCode.php": "ac3ded6f3b1fb3a34a6e72cbcdc65ccf15c88fe6ee67b79ea829bc76a43cc8e0",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ResponseType/AuthorizationCodeInterface.php": "593a3705ee3335f7d35e3e8186fb4b97580ead03068eb90ff40f589451f2ee1d",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ResponseType/JwtAccessToken.php": "e2fd756b4d0ad3be852ca960bb99c4e6d373e43c96ad65e2ecf5c71cad02dc87",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ResponseType/ResponseTypeInterface.php": "d5c5469e63fa06b38be0c2dd0cc4b668f046f46386d0136636820528178e853e",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Scope.php": "ac2611c8d411d37293283f010e2f4bf9fd744f38f1c3a6d40e364172bc8d0d76",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/ScopeInterface.php": "675a2bfeef2a99daf871a0de1300ea554f95c56db2df3d823f8fa7b5a2020345",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Server.php": "e0891945489281512f13de02527ea891ec396903bc9eb9f993c229e07341fc6f",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/AccessTokenInterface.php": "114b035f959278f4b505f9bb18b35e77241778f6877aa5ef7b0b2cd88dccd771",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/AuthorizationCodeInterface.php": "511233f828c7c573fffa904f53f83859a441b77718433a15367f5d314455cd42",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/Cassandra.php": "cabe7a0b3c40a81cb82bc45165790f7b023db5f2a425d7c9d5dfbbfb72a1f4a0",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/ClientCredentialsInterface.php": "cedd111f531caff45e368e3c67f14ddacbd1f89390b34025ec39adc7db35d5aa",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/ClientInterface.php": "9b491322e2e208565e756f0e3bff5442705a9d7f7e28acf95a75a4d21e7d5f90",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/CouchbaseDB.php": "5226e4ade408bc046663ebaaa5fd212872b06159ee51ff422bd351ce8b73e876",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/DynamoDB.php": "105820b01aa6e0cb3abb5559fd3e2e5c4590521042581e657b2ed7b1ebb3ce13",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/JwtAccessToken.php": "4e8116e1c9064380b77956d8eeccfcabf3213c9d205bc16c0999ac05b05a151d",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/JwtAccessTokenInterface.php": "2936136e927e2105909133334c2b237a0f5338864ae82aef871e340602f2d344",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/JwtBearerInterface.php": "066acd416ea2de411d10a06101ad7e62c7a156cc30b05913112bc1702e82848d",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/Memory.php": "e4485435a8129f14983588d35261ed0f27b3dba6838421782bbf5080103761f6",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/Mongo.php": "20494834a9cd2e3d0fb7db38ee6eb64e8692c494b3e885432f862626d7f7e6dd",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/MongoDB.php": "2986601b26b323d60774149bb7da510aaa00367dd3015e180234b45df9fb1b9e",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/Pdo.php": "9bddf430ef2202fe5792718da91abce8555a1671fc4e7eb54daa64bbdba2b055",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/PublicKeyInterface.php": "5e81a64a8d5fcdd0cd89243025e33f8b134e5a44060c75b43e0c6f23a359b51b",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/Redis.php": "f6c290a22a34991c7e651abceb3cbad9fdfe5398ee2356d37fdf34f1a26e0ce3",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/RefreshTokenInterface.php": "0fdb2327ecaa3b02e396c581be7395ef69b3a76026228ba02aa1ec2887049ddd",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/ScopeInterface.php": "96e5a675c2ba899085b3c647afe15dc381721d01d603fefb89b17f57dcac3c6b",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/Storage/UserCredentialsInterface.php": "bd11aea8215791116ec0a915e520b6f5ee2ed4727c1c55052765b3ed0a99205d",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/TokenType/Bearer.php": "d6eff0e48dc6ec08bdabff15c8863921622bc26e03862361bdd9cc785cbd8252",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/TokenType/Mac.php": "64089f8387dd7ea74810439feb1d6003b8791949c7625ef1253fba73cd6a351c",
+    "robw-oauth/vendor/oauth2-server/src/OAuth2/TokenType/TokenTypeInterface.php": "414a9839357d2ed320212592ba6d33d03fe54d109ed083981734593e2ceb2614"
+  },
+  "harnessFiles": {
+    "tests/blueprint.json": "a9f95d827b7150f369ad5520f064ba4b5375021487484d8af746b99b376652a1",
+    "tests/helper-e2e.cjs": "db416e58eb51fd0087a3e6d6feb34ec4393723c87c35fb14a760e73ad7d52aac",
+    "tests/mu/test-controls.php": "5b2226535357e4328304d58bc60ba1b57e1272245c81b7d989e5b6beaae3d399",
+    "tests/mu/test-fixtures.php": "dad17216c8a567b516c2ad11d14e8e7fcd5bee3206ea44347e485468741c3fb1",
+    "tests/oauth.spec.cjs": "19c356716bd016d56c58c3fd23e593001573f91190dad606eea691febf0a157f",
+    "tests/plugin-check-blueprint.json": "965df1f89a7b9414da8976d318948f1c383846f5549a095548dbe1f509d7203e",
+    "tools/package.py": "f55714f12899159a3b440dccb4d56b415daa2cd825263c6cc73b09d27c4886eb",
+    "tools/setup-helper.py": "a0b1bc72fbfcaf01b148104dfcd872e059eb6127acede55d7265508bfb085f98",
+    "tools/test.cjs": "64a084258c9e70707cda7c6601ed5563194aa09c9ead7011bbb3c6710b18ec7f",
+    "tools/vendor.py": "bd5cd2c9167fd5ec0100a283755c2fa8ce7eaa00033dc1a0761f0f8598d84b21",
+    ".github/workflows/e2e.yml": "53c22870349082c868428fa2e0fd99d29c468e0d38c2ec2edaf93e2c7b79994e"
+  }
+}

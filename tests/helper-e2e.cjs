@@ -1,0 +1,27 @@
+const {chromium}=require('@playwright/test');
+const http=require('node:http'),{spawn}=require('node:child_process');
+const path=require('node:path');
+(async()=>{
+ const base='http://127.0.0.1:9400';
+ const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,args:['--no-sandbox']});
+ const page=await browser.newPage();await page.goto(base+'/__test__/login/alice');
+ let browserError;
+ const controller=http.createServer(async(req,res)=>{try{let body='';for await(const b of req){body+=b;if(body.length>8192)throw Error('IPC input too large');}const u=new URL(body);if(u.origin!==base||u.pathname!=='/robw-oauth/authorize')throw Error('Unexpected authorization server');res.writeHead(200);res.end('ok');await page.goto(u.toString());await page.getByRole('button',{name:'Authorize',exact:true}).click();}catch(e){browserError=e;res.destroy();}});
+ await new Promise(resolve=>controller.listen(7180,'127.0.0.1',resolve));
+ const config={'credential.helper':'','credential.http://127.0.0.1:9400.oauthClientId':'git-test','credential.http://127.0.0.1:9400.oauthScopes':'repo:read repo:write','credential.http://127.0.0.1:9400.oauthAuthURL':'/robw-oauth/authorize','credential.http://127.0.0.1:9400.oauthTokenURL':'/robw-oauth/token','credential.http://127.0.0.1:9400.oauthRedirectURL':'http://127.0.0.1:0/oauth/callback'};
+ const args=Object.entries(config).flatMap(([k,v])=>['-c',k+'='+v]);args.push('-c','credential.helper='+path.resolve('.tools/git-credential-oauth'),'credential','fill');
+ const child=spawn('git',args,{env:{...process.env,PATH:path.resolve('.tools/shims')+':'+process.env.PATH,GIT_CONFIG_GLOBAL:'/dev/null',GIT_CONFIG_SYSTEM:'/dev/null',GIT_TERMINAL_PROMPT:'0',GIT_TRACE:'0',GIT_TRACE_CURL:'0',GIT_CURL_VERBOSE:'0'}});
+ let output='',errors='';child.stdout.on('data',d=>output+=d);child.stderr.on('data',d=>errors+=d);
+ child.stdin.end('protocol=http'+String.fromCharCode(10)+'host=127.0.0.1:9400'+String.fromCharCode(10)+String.fromCharCode(10));
+ const exit=await new Promise(resolve=>child.on('close',resolve));
+ if(browserError)throw Error('Browser authorization failed');if(exit!==0)throw Error('Git credential helper failed (credential output redacted)');
+ const pairs=Object.fromEntries(output.trim().split(String.fromCharCode(10)).map(l=>{const i=l.indexOf('=');return[l.slice(0,i),l.slice(i+1)]}));
+ if(pairs.username!=='oauth2'||!pairs.password)throw Error('Unexpected Git credential response');
+ const headers={Authorization:'Basic '+Buffer.from('oauth2:'+pairs.password).toString('base64')};
+ const read=await fetch(base+'/robw-oauth/resource?repo=owned',{headers});if(read.status!==200)throw Error('Git HTTP authentication failed');
+ const write=await fetch(base+'/robw-oauth/resource?repo=owned',{method:'POST',headers:{...headers,'Content-Type':'application/x-www-form-urlencoded'},body:''});if(write.status!==200)throw Error('Git write authorization failed');
+ const revoke=await fetch(base+'/robw-oauth/revoke',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams({client_id:'git-test',token:pairs.password})});if(revoke.status!==200)throw Error('Revocation failed');
+ const denied=await fetch(base+'/robw-oauth/resource?repo=owned',{headers});if(denied.status!==401)throw Error('Revoked Git credentials accepted');
+ console.log('PASS: actual git credential fill + upstream git-credential-oauth + real browser PKCE/consent + HTTP read/write authorization + revocation');
+ await browser.close();await new Promise(resolve=>controller.close(resolve));process.exit(0);
+})().catch(e=>{console.error(e.message);process.exit(1)});

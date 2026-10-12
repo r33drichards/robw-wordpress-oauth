@@ -1,0 +1,12 @@
+node_modules/
+.playground/
+test-results/
+playwright-report/
+*.zip
+
+.tools/
+
+dist/
+
+__pycache__/
+*.pyc

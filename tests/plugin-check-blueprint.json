@@ -1,0 +1,16 @@
+{
+  "steps": [
+    {
+      "step": "activatePlugin",
+      "pluginPath": "robw-oauth/robw-oauth.php"
+    },
+    {
+      "step": "activatePlugin",
+      "pluginPath": "plugin-check/plugin.php"
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp plugin check robw-oauth --format=json"
+    }
+  ]
+}
